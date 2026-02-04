@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ใส่รหัสผ่าน</title>
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET ===== */
+*{
+  box-sizing:border-box;
+  font-family:'Fahkwang', sans-serif;
+}
+
+/* ===== BODY ===== */
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background: linear-gradient(180deg,#fde2e6 0%,#f8bfc8 100%);
+}
+
+/* ===== LAYOUT ===== */
+.wrapper{
+  width:min(900px, 94vw);
+  background: rgba(255,255,255,.35);
+  border-radius:30px;
+  padding:26px;
+  box-shadow:0 20px 50px rgba(0,0,0,.14);
+}
+
+.card{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  background: rgba(255,255,255,.55);
+  border-radius:24px;
+  padding:22px;
+}
+
+/* ===== LEFT (IMAGE) ===== */
+.left{
+  background: rgba(255,255,255,.85);
+  border-radius:20px;
+  padding:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.left img{
+  width:100%;
+  max-height:360px;
+  object-fit:cover;
+  border-radius:16px;
+  box-shadow:0 14px 30px rgba(0,0,0,.25);
+}
+
+/* ===== RIGHT (PASS) ===== */
+.right{
+  background: linear-gradient(180deg,#ff8db3,#f86d98);
+  border-radius:24px;
+  padding:22px 18px;
+  text-align:center;
+  color:#fff;
+}
+
+/* ===== TEXT ===== */
+.right h2{
+  margin:8px 0 6px;
+  font-size:22px;
+  font-weight:700;
+}
+
+.hint{
+  font-size:13px;
+  opacity:.95;
+  margin-bottom:16px;
+}
+
+/* ===== PASS DOT ===== */
+.pass-dots{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.dot{
+  width:20px;
+  height:20px;
+  border-radius:6px;
+  background:rgba(255,255,255,.45);
+  transition:.25s;
+}
+
+.dot.active{
+  background:#fff;
+}
+
+/* ===== KEYPAD ===== */
+.keypad{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:12px;
+}
+
+.key{
+  background:#fff;
+  color:#f86d98;
+  font-size:20px;
+  font-weight:700;
+  padding:14px 0;
+  border-radius:16px;
+  cursor:pointer;
+  box-shadow:0 8px 18px rgba(0,0,0,.18);
+  user-select:none;
+  transition:.15s;
+}
+
+.key:active{
+  transform:scale(.94);
+}
+
+.key.zero{
+  grid-column: span 3;
+}
+
+/* ===== RESET ===== */
+.reset{
+  margin-top:16px;
+  font-size:13px;
+  font-weight:500;
+  display:inline-block;
+  padding:6px 18px;
+  border-radius:999px;
+  background:#fff;
+  color:#f86d98;
+  cursor:pointer;
+}
+
+/* ===== HAPPY (เผื่อใช้ต่อ) ===== */
+.happy{
+  font-size:20px;
+  font-weight:500;
+  color:#fff;
+  background: linear-gradient(135deg,#ff7eb3,#ff6f91);
+  padding:5px 16px;
+  border-radius:8px;
+  display:none;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width:768px){
+
+  body{
+    padding:16px;
+  }
+
+  .wrapper{
+    padding:18px;
+    border-radius:22px;
+  }
+
+  .card{
+    grid-template-columns:1fr;
+    gap:16px;
+    padding:16px;
+  }
+
+  .left img{
+    max-height:260px;
+  }
+
+  .right h2{
+    font-size:20px;
+  }
+
+  .key{
+    font-size:18px;
+    padding:14px 0;
+  }
+}
+
+/* ===== SMALL PHONE ===== */
+@media (max-width:380px){
+
+  .left img{
+    max-height:220px;
+  }
+
+  .key{
+    font-size:16px;
+    padding:12px 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+  <div class="card">
+
+    <!-- LEFT -->
+    <div class="left">
+      <!-- เปลี่ยนรูปตรงนี้ -->
+      <img src="yourphoto.jpeg" alt="memory">
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+      <h2>กรอกรหัสผ่าน</h2>
+      <div class="hint">คำใบ้ : รหัสคือ (วัน-เดือนนี้สำคัญของใครน้าาาา )</div>
+
+      <div class="pass-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+
+      <div class="keypad">
+        <div class="key">1</div>
+        <div class="key">2</div>
+        <div class="key">3</div>
+        <div class="key">4</div>
+        <div class="key">5</div>
+        <div class="key">6</div>
+        <div class="key">7</div>
+        <div class="key">8</div>
+        <div class="key">9</div>
+        <div class="key zero">0</div>
+      </div>
+
+      <div class="reset" onclick="resetPass()">ล้าง</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const PASSWORD = "0502"; // 👈 เปลี่ยนรหัสตรงนี้
+let input = "";
+
+const dots = document.querySelectorAll(".dot");
+const keys = document.querySelectorAll(".key");
+
+keys.forEach(key=>{
+  key.addEventListener("click", ()=>{
+    if(input.length >= PASSWORD.length) return;
+
+    input += key.innerText;
+    updateDots();
+
+    if(input.length === PASSWORD.length){
+      if(input === PASSWORD){
+        window.location.href = "letter.html"; // หน้าถัดไป
+      }else{
+        shake();
+        resetPass();
+      }
+    }
+  });
+});
+
+function updateDots(){
+  dots.forEach((d,i)=>{
+    d.classList.toggle("active", i < input.length);
+  });
+}
+
+function resetPass(){
+  input="";
+  updateDots();
+}
+
+function shake(){
+  document.querySelector(".right").animate([
+    {transform:"translateX(0)"},
+    {transform:"translateX(-8px)"},
+    {transform:"translateX(8px)"},
+    {transform:"translateX(0)"}
+  ],{duration:300});
+}
+</script>
+
+</body>
+</html>
